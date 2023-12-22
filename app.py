@@ -23,18 +23,22 @@ def get_response(query, vector_store):
     st.write(model_output)
 
 def main():
-    st.title("Chilenos por Europa 🇨🇱")
+    st.markdown(
+        """
+        ## 🇨🇱 Chilenos por Europa
+        Haz consultas sobre recomendaciones en Europa y obtén información relevante.
 
-    # Descripción e instrucciones
-    st.markdown("""
-        Ingresa tu pregunta y obtén información relevante.
-    """)
+
+        Ejemplo: `Hostales en Roma` - `Qué visitar en Amsterdam` - `Restaurantes en París`
+
+        """
+    )
 
     # Pinecone connection
     pinecone_api_key = str(st.secrets["pinecone_api_key"].value)
     pinecone_env = str(st.secrets["pinecone_env"].value)
     pinecone.init(api_key=pinecone_api_key, environment=pinecone_env)
-    index = pinecone.Index("chpe")
+    index = pinecone.Index(str(st.secrets["pinecone_index"].value))
 
     # Embedding
     embed = OpenAIEmbeddings(
@@ -50,12 +54,18 @@ def main():
     )
 
     # Input para ingresar la query
-    query = st.text_input("Ingrese su pregunta:")
+    query = st.text_input("", max_chars=50)
 
     if query:
         # Muestra "Cargando" mientras se procesa la respuesta
         with st.spinner("Cargando..."):
             get_response(query, vector_store)
+
+    st.markdown("""
+        ---
+
+        Hecho por [Pedro Ríos](https://github.com/pedroriosg)
+    """)
 
 if __name__ == "__main__":
     main()
