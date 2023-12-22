@@ -34,6 +34,8 @@ def main():
 
         Ejemplo: `Hostales en Roma` - `Qué visitar en Amsterdam` - `Restaurantes en París`
 
+        ---
+
         """
     )
 
