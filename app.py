@@ -29,8 +29,7 @@ def main():
     )
     st.markdown(
         """
-        ## 🇨🇱 Chilenos por Europa
-        Haz consultas sobre recomendaciones en Europa y obtén información relevante.
+        ##### Obtén recomendaciones según experiencias de chilenos de intercambio
 
 
         Ejemplo: `Hostales en Roma` - `Qué visitar en Amsterdam` - `Restaurantes en París`
