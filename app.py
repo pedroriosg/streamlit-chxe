@@ -23,6 +23,10 @@ def get_response(query, vector_store):
     st.write(model_output)
 
 def main():
+    st.set_page_config(
+        page_title="Chilenos por Europa",
+        page_icon="🌍",
+    )
     st.markdown(
         """
         ## 🇨🇱 Chilenos por Europa
@@ -33,6 +37,7 @@ def main():
 
         """
     )
+
 
     # Pinecone connection
     pinecone_api_key = str(st.secrets["pinecone_api_key"].value)
