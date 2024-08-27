@@ -3,4 +3,4 @@ pinecone-client[grpc]
 langchain
 openai
 tiktoken
-langchain_openai
+langchain-openai
