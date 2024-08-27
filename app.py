@@ -47,7 +47,7 @@ def main():
     # Pinecone connection
     pinecone_api_key = str(st.secrets["pinecone_api_key"].value)
     pinecone_env = str(st.secrets["pinecone_env"].value)
-    pc = Pinecone(api_key=pinecone_api_key)
+    pc = pinecone.Pinecone(api_key=pinecone_api_key)
     index = pc.Index(str(st.secrets["pinecone_index"].value))
 
     # Embedding
