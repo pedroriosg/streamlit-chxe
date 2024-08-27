@@ -1,11 +1,12 @@
 import streamlit as st
 import pinecone
-from langchain.embeddings.openai import OpenAIEmbeddings
-# from langchain_openai import OpenAIEmbeddings
-from langchain.vectorstores import Pinecone
+# from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain_openai import OpenAIEmbeddings
+from langchain_pinecone import PineconeVectorStore
+
+# from langchain.vectorstores import Pinecone
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import RetrievalQA
-from pinecone.grpc import PineconeGRPC as Pinecone
 
 
 def get_response(query, vector_store):
@@ -56,11 +57,7 @@ def main():
     )
 
     # Vector store
-    vector_store = Pinecone(
-        index,
-        embed,
-        'text'
-    )
+    vector_store = PineconeVectorStore(index=index, embedding=embed, 'text')
 
     # Input para ingresar la query
     query = st.text_input("", max_chars=50)
