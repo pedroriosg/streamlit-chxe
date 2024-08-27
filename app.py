@@ -5,6 +5,8 @@ from langchain_openai import OpenAIEmbeddings
 from langchain.vectorstores import Pinecone
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import RetrievalQA
+from pinecone.grpc import PineconeGRPC as Pinecone
+
 
 def get_response(query, vector_store):
 
