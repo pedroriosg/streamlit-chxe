@@ -57,7 +57,7 @@ def main():
     )
 
     # Vector store
-    vector_store = PineconeVectorStore(index=index, embedding=embed, 'text')
+    vector_store = PineconeVectorStore(index=index, embedding=embed)
 
     # Input para ingresar la query
     query = st.text_input("", max_chars=50)
