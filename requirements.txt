@@ -5,3 +5,5 @@ openai
 tiktoken
 langchain-openai
 langchain-community
+langchain-pinecone
+pinecone-notebooks
